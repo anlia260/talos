@@ -1,0 +1,23 @@
+# define stages
+stages:
+    - Install
+    - Build
+
+# cache node_modules
+cache:
+    key: "$CI_COMMIT_REF_NAME"
+    untracked: true
+    paths:
+        - node_modules/
+
+# install
+install:
+    stage: Install
+    script:
+        - yarn
+
+# build
+build:
+    stage: Build
+    script:
+        - yarn build
