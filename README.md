@@ -32,10 +32,10 @@ src/client              源码目录(TODO to fix)
         - ...           静态资源
     - redux             状态管理组件（Redux）
         - actions       动作
-            - name1     模块名称_组件_action 当一个模块较大会把对应的action拆成若干个组件，比如 {creation,list}_action
+            - name1     模块名称_组件_action 当一个模块较大会把对应的action拆成若干个组件
             - name2     模块名称_action 适用于小的模块，比如 common_action
         - reducers      状态累加器
-            - name1     模块名称_组件_reducer 当一个模块较大会把对应的action拆成若干个组件，比如 ad_{creation,list}_reducer
+            - name1     模块名称_组件_reducer 当一个模块较大会把对应的action拆成若干个组件
             - name2     模块名称_reducer 适用于小的模块，比如 common_reducer
         - store         store对象
     - routes            路由组件
@@ -68,7 +68,7 @@ $ cd talos && yarn
 By running this:
 
 ```
-npm start
+yarn start
 ```
 
 `Talos` will start a development server and run your code with live-reload.
@@ -78,7 +78,7 @@ npm start
 By running this:
 
 ```
-npm run build
+yarn run build
 ```
 
 `Talos` will compile your source code into production code, when compiling finished, you can find them in the `build/` folder.
