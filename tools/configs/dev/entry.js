@@ -1,4 +1,4 @@
 export default {
-    title: "Title",
-    description: "Description."
+    title: "Todo Application",
+    description: "Todo Applications by talos"
 };

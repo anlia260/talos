@@ -31,15 +31,11 @@ const devServerConfig = {
         },
         proxy: {
             "/api": {
-                target: "http://youtop-dsp.local",
-                // target: 'http://platform.youtop.auto',
-                // target: 'http://platform.youtop.test',
+                target: "http://api.domain.test",
                 changeOrigin: true
             },
             "/service": {
-                target: "http://youtop-dsp.local",
-                // target: 'http://platform.youtop.auto',
-                // target: 'http://platform.youtop.test',
+                target: "http://api.domain.test",
                 changeOrigin: true
             }
         },

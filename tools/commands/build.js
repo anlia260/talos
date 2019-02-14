@@ -113,8 +113,6 @@ async function build() {
 
         await judge(checkDll);
 
-        await judge(copy, [buildConfig.source.debug, buildConfig.build.static]);
-
         if (!existDll) {
             await judge(dllBundle);
         }

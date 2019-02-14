@@ -23,6 +23,7 @@ export default {
         cached: false,
         cachedAssets: false
     },
+    
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
