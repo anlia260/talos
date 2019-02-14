@@ -1,10 +1,13 @@
-import { combineReducers } from 'redux';
-import { routerReducer as routing } from 'react-router-redux';
-import todos from './todos';
+import { routerReducer as routing } from "react-router-redux";
+import { composeReducers, loading } from "redux-model";
+import todos from "./todos";
+import todoModel from "Container/todos/model";
 
-const rootReducer = combineReducers({
-  routing,
-  todos,
+const rootReducer = composeReducers({
+    loading,
+    routing,
+    todoModel,
+    todos
 });
 
 export default rootReducer;
