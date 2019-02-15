@@ -15,10 +15,9 @@ const scriptDir = path.join(__dirname, "", "commands");
  */
 
 function invokeScript(scriptName) {
-    const scriptPath = path.join(scriptDir, scriptName);
     process.env.NODE_ENV = scriptName;
+    const scriptPath = path.join(scriptDir, scriptName);
     const task = require(scriptPath).default;
-
     judge(task);
 }
 

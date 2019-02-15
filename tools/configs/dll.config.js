@@ -43,15 +43,15 @@ const dllConfig = {
             name: isDev ? "[name]" : "[name]_[chunkhash:6]"
         })
     ]
-}
-
+};
 
 /**
  * handle bundle dll's webpack config when evn is 'dev' or 'prod'
- * 
- *  */ 
-if(isDev){
-    dllConfig.devtool = "cheap-module-eval-source-map"
+ *
+ *  */
+
+if (isDev) {
+    dllConfig.devtool = "cheap-module-eval-source-map";
 }
 
 export default dllConfig;

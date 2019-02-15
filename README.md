@@ -1,11 +1,11 @@
 # Talos
 
-`Talos` 一套 web 模版，使用了`React`。
+`Talos` 是一套 web 模版，使用`React`。
 
-# 特点（Todo）
+# 特点
 
-1. 可以自定义的构建流程
-2. 简单的 redux 组织方式
+1. 根据用户需要自定义的构建流程
+2. 使用`redux-model`简化 Redux 组织方式
 
 ## 目录结构
 
@@ -14,37 +14,33 @@ build                   构建产出（可上线）代码
 
 tools                   构建工具，使用ES6语法，做一些流程化的构建工作
     - commands          构建脚本
-    - core
-    - utils             构建工具库
+    - utils
     - config
         - dev           开发构建脚本配置
         - prod          部署构建脚本配置
 
-src/client              源码目录(TODO to fix)
-    - components        业务组件目录（包含无状态组件与有状态组件）
-        - ad            有状态业务组件
-        - echat         无状态组件
-        - ...           其他
-    - constant          不常变的静态文件目录
+src/client              源码目录
+    - components        木偶组件
+        - ...
+    - constant          不常变的静态变量
+        - Routes        路由
         - api           业务API接口
-        - type          项目中 Action Type 的定量
-    - public            资源文件目录（TODO to fix）
-        - ...           静态资源
+        - type          项目中 Action Type 的定量（已废弃这种书写方式）
+    - containers        智能组件
+        - ...
+    - public            资源文件目录
+        - ...
     - redux             状态管理组件（Redux）
-        - actions       动作
-            - name1     模块名称_组件_action 当一个模块较大会把对应的action拆成若干个组件
-            - name2     模块名称_action 适用于小的模块，比如 common_action
-        - reducers      状态累加器
-            - name1     模块名称_组件_reducer 当一个模块较大会把对应的action拆成若干个组件
-            - name2     模块名称_reducer 适用于小的模块，比如 common_reducer
-        - store         store对象
+        - actions
+        - reducers
+        - store
     - routes            路由组件
 
 client.jsx              入口文件
-package.json            包说明
-README.md               说明文档
-CHANGELOG.md            项目日志文档
-.gitignore              git忽略配置
+package.json
+README.md
+CHANGELOG.md
+.gitignore
 .editorConfig           格式配置
 .gitlab-ci.yml          gitlab CI脚本
 ```
@@ -81,7 +77,27 @@ By running this:
 yarn run build
 ```
 
-`Talos` will compile your source code into production code, when compiling finished, you can find them in the `build/` folder.
+`Talos` will compile your source code into production, when compiling finished, you can find them in the `build/` folder.
+
+## Advance
+
+-   构建完成后，如何预览构建后的文件正确性？【Nginx 的简单配置】
+
+## Nginx Config
+
+```
+server {
+        listen 10086;
+        server_name talos.com;
+
+        location / {
+                root ~/talos/build;
+                autoindex on;
+                client_max_body_size    1000m;
+        }
+
+}
+```
 
 ## Credits
 

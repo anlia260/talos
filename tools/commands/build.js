@@ -24,17 +24,20 @@ import mv from "../utils/mv";
 import * as prodWebpack from "../configs/prod/webpack";
 
 /**
- * [调试参数：生产环境是否cache dll]
+ * 调试参数：生产环境是否cache dll
+ * 使用方式：yarn run build -- dll
  * @type {[type]}
  */
 
 const clearDllCache = process.argv.includes("dll");
 
 /**
- * [调试参数：生产是否开启sourcemap]
+ * 调试参数：生产是否开启sourcemap
+ * 使用方式：yarn run build -- smap
  * @type {[type]}
  */
 const isOpenSourceMap = process.argv.includes("smap");
+
 const souremapReg = `${buildConfig.build.static}/*.map`;
 
 let existDll = false;
@@ -70,7 +73,7 @@ const dllBundle = () => {
 const checkDll = () => {
     return new Promise((resolve, reject) => {
         fs.exists(buildConfig.build.dll, exists => {
-            console.log(exists ? "dll existed..." : "bundle dll...");
+            console.log(exists ? "dll existed..." : "bundling dll...");
             existDll = exists;
             return resolve();
         });
@@ -123,8 +126,7 @@ async function build() {
             buildConfig.source.entry,
             buildConfig.build.entry,
             entryConfig,
-            buildConfig.build.asset,
-            buildConfig.source.api
+            buildConfig.build.asset
         ]);
 
         await judge(copy, [buildConfig.build.dll, buildConfig.build.static]);

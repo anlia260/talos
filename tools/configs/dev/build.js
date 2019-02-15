@@ -7,7 +7,6 @@ export default {
     ),
     source: {
         entry: path.join(projectRoot, "client", "public", "index.html"),
-        api: path.join(projectRoot, "client", "constant", "dev_api.js"),
         root: path.join(projectRoot, "client"),
         public: path.join(projectRoot, "client", "public")
     },

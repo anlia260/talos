@@ -25,5 +25,4 @@ const initReact = () => {
         });
     }
 };
-
 initReact();

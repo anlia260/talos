@@ -8,7 +8,7 @@ export default {
         entry: path.join(projectRoot, "client", "public", "index.html")
     },
     build: {
-        pathPrefix: "/front/static/",
+        pathPrefix: "/public/static/",
         index: path.join(projectRoot, "build"),
         public: path.join(projectRoot, "build", "public"),
         dll: path.join(projectRoot, "build", "dll"),

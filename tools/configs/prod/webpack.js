@@ -44,18 +44,21 @@ export const pack = isOpenSourceMap => ({
             path.basename(`${buildConfig.build.public}/main.css`)
         ),
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
+            sourceMap: false,
             compress: {
                 warnings: false,
                 unused: true,
+                drop_console: true,
+                reduce_vars: true,
+                collapse_vars: true,
                 dead_code: true
             },
             mangle: {
                 screw_ie8: true
             },
             output: {
-                comments: false,
-                screw_ie8: true
+                beautify: false,
+                comments: false
             }
         }),
         new webpack.optimize.AggressiveMergingPlugin()
