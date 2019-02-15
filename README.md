@@ -16,6 +16,7 @@ Before the start, we recommend you read these documentation.
 -   [React](https://facebook.github.io/react/)
 -   [Redux](https://github.com/reactjs/redux)
 -   [ES6](http://babeljs.io/learn-es2015/)
+-   [Webpack](https://github.com/webpack/webpack)
 
 You can try ES6 and JSX in [Babel REPL](http://babeljs.io/repl/).
 
@@ -88,16 +89,12 @@ yarn run build
 
 -   构建完成后，如何预览构建后的文件正确性？[【Nginx 的简单配置】](https://github.com/anlia260/talos/wiki/Nginx.Config)
 
--   如快速调试`web`的兼容性？[【Browsersync】](https://github.com/anlia260/talos/wiki/Browsersync)？
+-   如何快速调试`web`的兼容性？[【Browsersync】](https://github.com/anlia260/talos/wiki/Browsersync)？
 
 ## Data Flow
 
 ![redux](https://user-images.githubusercontent.com/20860159/29354186-429b4446-829f-11e7-9a2f-a15c97dafaa3.png)
 
 ## Credits
-
-[Redux](https://github.com/reactjs/redux)
-
-[Webpack](https://github.com/webpack/webpack)
 
 [React Starter Kit](https://github.com/kriasoft/react-starter-kit)
