@@ -89,7 +89,7 @@ yarn run build
 
 -   构建完成后，如何预览构建后的文件正确性？[【Nginx 的简单配置】](https://github.com/anlia260/talos/wiki/Nginx.Config)
 
--   如何快速调试`web`的兼容性？[【Browsersync】](https://github.com/anlia260/talos/wiki/Browsersync)？
+-   如何快速调试`web`的兼容性？[【Browsersync】](https://github.com/anlia260/talos/wiki/Browsersync)
 
 ## Data Flow
 
