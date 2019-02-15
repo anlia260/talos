@@ -9,7 +9,14 @@ import configureStore from "./redux/store";
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
 
-const init = () => {
+const renderDom = Root => {
+    render(
+        <Root store={store} history={history} />,
+        document.getElementById("root")
+    );
+};
+
+const initReact = () => {
     renderDom(Root);
     if (module.hot) {
         module.hot.accept("Container/Root", () => {
@@ -19,11 +26,4 @@ const init = () => {
     }
 };
 
-const renderDom = Root => {
-    render(
-        <Root store={store} history={history} />,
-        document.getElementById("root")
-    );
-};
-
-init();
+initReact();

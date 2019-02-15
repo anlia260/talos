@@ -1,7 +1,9 @@
 import webpack from "webpack";
-import buildConfig from "./build";
-export default {
-    devtool: "cheap-module-eval-source-map",
+import devBuildConfig from "./dev/build";
+import prodBuildConfig from "./prod/build";
+const isDev = process.env.NODE_ENV === "start";
+const buildConfig = isDev ? devBuildConfig : prodBuildConfig;
+const dllConfig = {
     entry: {
         dll: buildConfig.dllLib
     },
@@ -9,8 +11,8 @@ export default {
     output: {
         publicPath: buildConfig.build.pathPrefix,
         path: buildConfig.build.dll,
-        filename: "[name].js",
-        library: "[name]"
+        filename: isDev ? "[name].js" : "[name]_[chunkhash:6].js",
+        library: isDev ? "[name]" : "[name]_[chunkhash:6]"
     },
     stats: {
         colors: true,
@@ -23,25 +25,33 @@ export default {
         cached: false,
         cachedAssets: false
     },
-    
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
-                NODE_ENV: JSON.stringify("production"),
+                NODE_ENV: isDev ? '"development"' : '"production"',
                 BROWSER: true
             }
         }),
-
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 screw_ie8: true,
                 warnings: false
             }
         }),
-
         new webpack.DllPlugin({
             path: buildConfig.build.manifest,
-            name: "[name]"
+            name: isDev ? "[name]" : "[name]_[chunkhash:6]"
         })
     ]
-};
+}
+
+
+/**
+ * handle bundle dll's webpack config when evn is 'dev' or 'prod'
+ * 
+ *  */ 
+if(isDev){
+    dllConfig.devtool = "cheap-module-eval-source-map"
+}
+
+export default dllConfig;

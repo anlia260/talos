@@ -7,10 +7,6 @@ class Header extends Component {
         addTodo: PropTypes.func.isRequired
     };
 
-    componentDidMount() {
-        console.log(this.props);
-    }
-
     handleSave(text) {
         if (text.length !== 0) {
             this.props.addTodo(text);

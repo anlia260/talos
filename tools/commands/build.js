@@ -18,7 +18,7 @@ import makeEntry from "../utils/make-entry";
 import structuring from "../utils/structuring";
 
 import buildConfig from "../configs/prod/build";
-import dllConfig from "../configs/prod/dll.config";
+import dllConfig from "../configs/dll.config";
 import entryConfig from "../configs/prod/entry";
 import mv from "../utils/mv";
 import * as prodWebpack from "../configs/prod/webpack";

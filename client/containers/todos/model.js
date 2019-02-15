@@ -2,7 +2,7 @@ export default {
     namespace: "todoModel",
     state: [
         {
-            text: "Use Redux",
+            text: "Use ReduxModel",
             completed: false,
             id: 0
         }

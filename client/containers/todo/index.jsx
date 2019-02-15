@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { mount } from "redux-model";
 import * as TodoActions from "Actions";
-import "./style.less";
 import Header from "Components/todo/Header";
 import MainSection from "Components/todo/MainSection";
-class App extends Component {
-    componentDidMount() {
-        const banners = [Header, MainSection];
-        banners.forEach(banner => {
-            banner.defaultProps = { a: 1 };
-            console.log(<banner />);
-        });
-    }
+import "./style.less";
 
+const mapStateToProps = state => ({ todos: state.todos });
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(TodoActions, dispatch)
+});
+
+@connect(mapStateToProps,mapDispatchToProps)
+export default class Todo extends Component {
     render() {
         const { actions, todos } = this.props;
         return (
@@ -25,14 +24,3 @@ class App extends Component {
         );
     }
 }
-
-const mapStateToProps = state => ({ todos: state.todos });
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(TodoActions, dispatch)
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(App);

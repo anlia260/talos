@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { mount } from "redux-model";
-import "../todo/style.less";
 import Header from "Components/todo/Header";
 import MainSection from "Components/todo/MainSection";
+import "../todo/style.less";
 
 @mount(state => ({ todos: state.todoModel }), actions => ["todoModel"])
-export default class App extends Component {
+export default class Todo extends Component {
     render() {
         const { actions, todos } = this.props;
         return (

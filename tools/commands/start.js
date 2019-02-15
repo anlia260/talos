@@ -16,12 +16,11 @@ import BrowserSync from "browser-sync";
 import once from "lodash/fp/once";
 
 import clean from "../utils/clean";
-import copy from "../utils/copy";
 import judge from "../utils/judge";
 import makeEntry from "../utils/make-entry";
 import structuring from "../utils/structuring";
 
-import dllConfig from "../configs/dev/dll.config";
+import dllConfig from "../configs/dll.config";
 import buildConfig from "../configs/dev/build";
 
 import {
@@ -33,8 +32,7 @@ import {
 import entryConfig from "../configs/dev/entry";
 
 const bs = BrowserSync.create();
-let compiler,
-    existDll = false;
+let compiler, existDll = false;
 
 /**
  * @returns {Promise}
@@ -66,7 +64,6 @@ function startDevServer() {
                     networkConfig.devServer.port
                 }/`
             );
-            console.log(process.env.NODE_ENV);
             console.log("Waiting for Webpack to finish compiling...");
         };
         const server = new WebpackDevServer(
@@ -123,7 +120,6 @@ const checkDll = () => {
 async function start() {
     let clearPath = [path.join(buildConfig.build.public, "*")];
 
-    // const webpackConfig = require('../configs/dev/webpack').default;
 
     try {
         await judge(checkDll);
@@ -135,11 +131,6 @@ async function start() {
         await judge(clean, [clearPath]);
 
         await judge(structuring, [[buildConfig.build.public]]);
-
-        // await judge(copy, [
-        //     buildConfig.source.public + '/sign.png',
-        //     buildConfig.build.public,
-        // ]);
 
         if (!existDll) {
             await judge(dllBundle);

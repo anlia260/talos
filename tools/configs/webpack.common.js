@@ -18,8 +18,6 @@ export default buildConfig => {
                 Constant: "constant",
                 Reducers: "redux/reducers",
                 Actions: "redux/actions",
-                RComponent: "routes",
-                Resource: "resources",
                 Util: "util",
                 "redux-model": "util/redux-model"
             }
