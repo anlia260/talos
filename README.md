@@ -1,13 +1,27 @@
 # Talos
 
-`Talos` 是一套 web 模版，使用`React`。
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-# 特点
+`Talos`，a web framework by `react`。
+
+## Feature
 
 1. 根据用户需要自定义的构建流程
 2. 使用`redux-model`简化 Redux 组织方式
 
-## 目录结构
+## Get Start
+
+Before the start, we recommend you read these documentation.
+
+-   [React](https://facebook.github.io/react/)
+-   [Redux](https://github.com/reactjs/redux)
+-   [ES6](http://babeljs.io/learn-es2015/)
+
+You can try ES6 and JSX in [Babel REPL](http://babeljs.io/repl/).
+
+> We recommend node 8.x + npm 5.x / yarn ^1.7.0。
+
+## Files Structure
 
 ```
 build                   构建产出（可上线）代码
@@ -19,7 +33,7 @@ tools                   构建工具，使用ES6语法，做一些流程化的�
         - dev           开发构建脚本配置
         - prod          部署构建脚本配置
 
-src/client              源码目录
+client
     - components        无状态组件
         - ...
     - constant          不常变的静态变量
@@ -35,11 +49,6 @@ src/client              源码目录
         - store
 
 client.jsx              入口文件
-package.json
-README.md
-CHANGELOG.md
-.gitignore
-.editorConfig
 .gitlab-ci.yml          gitlab的CI脚本
 ```
 
@@ -48,40 +57,42 @@ CHANGELOG.md
 First, clone `Talos` into your machine:
 
 ```
-https://github.com/anlia260/talos
-```
+$ git clone https://github.com/anlia260/talos.git
+$ cd talos && yarn # Install project dependencies (or `npm install`)
 
-Then go to the project directory, install dependencies:
-
-```
-$ cd talos && yarn
 ```
 
 ## Development
 
-By running this:
-
 ```
-yarn start
+$ yarn start # Start the development server (or `npm start`)
 ```
-
-`Talos` will start a development server and run your code with live-reload.
 
 ## Production Build
-
-By running this:
 
 ```
 yarn run build
 ```
 
-`Talos` will compile your source code into production, when compiling finished, you can find them in the `build/` folder.
+## Scripts
+
+| `yarn <script>` | Description                                |
+| --------------- | ------------------------------------------ |
+| `start`         | Serves your app at <http://localhost:4001> |
+| `build`         | Builds the application to ./build          |
+| `build -- dll`  | clear dll cache & run build                |
+
+---
 
 ## Advance
 
 -   构建完成后，如何预览构建后的文件正确性？[【Nginx 的简单配置】](https://github.com/anlia260/talos/wiki/Nginx.Config)
 
 -   如快速调试`web`的兼容性？[【Browsersync】](https://github.com/anlia260/talos/wiki/Browsersync)？
+
+## Data Flow
+
+![redux](https://user-images.githubusercontent.com/20860159/29354186-429b4446-829f-11e7-9a2f-a15c97dafaa3.png)
 
 ## Credits
 
