@@ -20,13 +20,12 @@ tools                   构建工具，使用ES6语法，做一些流程化的�
         - prod          部署构建脚本配置
 
 src/client              源码目录
-    - components        木偶组件
+    - components        无状态组件
         - ...
     - constant          不常变的静态变量
-        - Routes        路由
-        - api           业务API接口
-        - type          项目中 Action Type 的定量（已废弃这种书写方式）
-    - containers        智能组件
+        - Routes
+        - Type          ActionType（已废弃这种书写方式，仅作参照）
+    - containers        容器组件
         - ...
     - public            资源文件目录
         - ...
@@ -34,15 +33,14 @@ src/client              源码目录
         - actions
         - reducers
         - store
-    - routes            路由组件
 
 client.jsx              入口文件
 package.json
 README.md
 CHANGELOG.md
 .gitignore
-.editorConfig           格式配置
-.gitlab-ci.yml          gitlab CI脚本
+.editorConfig
+.gitlab-ci.yml          gitlab的CI脚本
 ```
 
 ## Install
@@ -81,23 +79,9 @@ yarn run build
 
 ## Advance
 
--   构建完成后，如何预览构建后的文件正确性？【Nginx 的简单配置】
+-   构建完成后，如何预览构建后的文件正确性？[【Nginx 的简单配置】](https://github.com/anlia260/talos/wiki/Nginx.Config)
 
-## Nginx Config
-
-```
-server {
-        listen 10086;
-        server_name talos.com;
-
-        location / {
-                root ~/talos/build;
-                autoindex on;
-                client_max_body_size    1000m;
-        }
-
-}
-```
+-   如何调试快捷调试`web`到兼容性？[【Browsersync】](https://github.com/anlia260/talos/wiki/Browsersync)？
 
 ## Credits
 
