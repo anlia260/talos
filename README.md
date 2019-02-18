@@ -2,7 +2,7 @@
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-`Talos`，a web framework by `react`。
+`Talos`，a starter kit of `react`。
 
 ## Feature
 
