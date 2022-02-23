@@ -5,17 +5,17 @@ export default {
     source: {
         root: path.join(projectRoot, "client"),
         public: path.join(projectRoot, "client", "public"),
-        entry: path.join(projectRoot, "client", "public", "index.html")
+        entry: path.join(projectRoot, "client", "public", "index.html"),
     },
     build: {
-        pathPrefix: "/public/static/",
+        pathPrefix: "./static/",
         index: path.join(projectRoot, "build"),
-        public: path.join(projectRoot, "build", "public"),
+        public: path.join(projectRoot, "build"),
         dll: path.join(projectRoot, "build", "dll"),
         sourcemap: path.join(projectRoot, "build", "sourcemap"),
-        static: path.join(projectRoot, "build", "public", "static"),
-        entry: path.join(projectRoot, "build", "public", "index.html"),
-        asset: path.join(projectRoot, "build", "public", "map.json"),
-        manifest: path.join(projectRoot, "build", "dll", "manifest.json")
-    }
+        static: path.join(projectRoot, "build", "static"),
+        entry: path.join(projectRoot, "build", "index.html"),
+        asset: path.join(projectRoot, "build", "map.json"),
+        manifest: path.join(projectRoot, "build", "dll", "manifest.json"),
+    },
 };
